@@ -27,12 +27,19 @@ async function extractAndSendToGPT() {
 
     output.innerHTML = '⏳ Datei wird verarbeitet...';
 
+    const apiKey = prompt("🔐 Bitte gib deinen OpenAI API-Key ein:");
+
+    if (!apiKey) {
+      output.innerHTML = "❌ Kein API-Key eingegeben.";
+      return;
+    }
+
     try {
       const gptResponse = await fetch("https://api.openai.com/v1/chat/completions", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "Authorization": "Bearer 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"
+          "Authorization": "Bearer " + apiKey
         },
         body: JSON.stringify({
           model: "gpt-4",
