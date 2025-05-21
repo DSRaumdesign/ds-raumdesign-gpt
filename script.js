@@ -59,17 +59,34 @@ async function extractTextFromPDF() {
           messages: [{
             role: "user",
             content:
-              "Lies den folgenden Text aus dem oberen Teil der ersten PDF-Seite. Extrahiere die folgenden Felder:\n" +
-              "- Objekt-Nr.\n" +
-              "- Kunden-Nr.\n" +
-              "- Projektleiter\n" +
-              "- Objektadresse\n\n" +
-              "Antworte im Format:\n" +
-              "Objekt-Nr: ...\n" +
-              "Kunden-Nr: ...\n" +
-              "Projektleiter: ...\n" +
-              "Objektadresse: ...\n\n" +
-              "Text:\n" + extracted
+              "Du erhältst Text aus dem oberen Bereich der ersten Seite eines Bauleistungsverzeichnisses.
+" +
+              "Bitte extrahiere folgende Felder, auch wenn du dir nicht ganz sicher bist:
+
+" +
+              "- Objekt-Nr: Eine 5-stellige Zahl rechts unten nach 'Objekt-Nr:'
+" +
+              "- Kunden-Nr: Steht direkt unter Objekt-Nr, nach 'Kunden-Nr:'
+" +
+              "- Projektleiter: Nach dem Text 'Objekt-Leiter: VORNAME NACHNAME'
+" +
+              "- Objektadresse: Der Text direkt hinter dem Wort 'Objekt:' – meist Straße, PLZ Ort. Wenn 'Objekt' fett geschrieben ist, ist das ein sicherer Hinweis.
+
+" +
+              "Beispiel-Ausgabe:
+" +
+              "Objekt-Nr: 53490
+" +
+              "Kunden-Nr: 81916
+" +
+              "Projektleiter: Edvin Dolicanin
+" +
+              "Objektadresse: Berkersheimer Weg 107, 60433 Frankfurt am Main
+
+" +
+              "Hier ist der PDF-Text:
+
+" + extracted
           }],
           temperature: 0.2
         })
@@ -77,7 +94,9 @@ async function extractTextFromPDF() {
 
       const data = await response.json();
       if (data.choices && data.choices.length > 0) {
-        output.textContent = "✅ Ergebnis:\n\n" + data.choices[0].message.content;
+        output.textContent = "✅ Ergebnis:
+
+" + data.choices[0].message.content;
       } else {
         output.textContent = "❌ GPT-Antwort unklar.";
       }
