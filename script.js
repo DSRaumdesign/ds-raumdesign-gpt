@@ -68,9 +68,9 @@ async function extractTextFromPDF() {
 " +
               "- Kunden-Nr: Steht direkt unter Objekt-Nr, nach 'Kunden-Nr:'
 " +
-              "- Projektleiter: Nach dem Text 'Objekt-Leiter: VORNAME NACHNAME'
+              "- Projektleiter: Nach dem Text 'Objekt-Leiter:' mit Vor- und Nachname
 " +
-              "- Objektadresse: Der Text direkt hinter dem Wort 'Objekt:' – meist Straße, PLZ Ort. Wenn 'Objekt' fett geschrieben ist, ist das ein sicherer Hinweis.
+              "- Objektadresse: Der Text direkt hinter dem Wort 'Objekt:' – meist Straße, PLZ Ort.
 
 " +
               "Beispiel-Ausgabe:
