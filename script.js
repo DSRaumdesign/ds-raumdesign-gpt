@@ -47,19 +47,13 @@ async function extractTextFromPDF() {
           messages: [{
             role: "user",
             content:
-              content:
-  "Du bekommst den Text aus der oberen Hälfte der ersten Seite eines Leistungsverzeichnisses.\n\n" +
-  "Bitte extrahiere folgende Informationen, auch wenn sie nicht perfekt formatiert sind:\n\n" +
-  "1. Objekt-Nr → steht rechts unten neben 'Objekt-Nr:' (meist 5-stellige Zahl)\n" +
-  "2. Kunden-Nr → steht direkt darunter nach 'Kunden-Nr:'\n" +
-  "3. Projektleiter → steht nach 'Objekt-Leiter:' (Name, Vorname)\n" +
-  "4. Objektadresse → steht meist fett bei 'Objekt:', enthält Straße und Ort\n\n" +
-  "Antworte bitte genau in diesem Format:\n" +
-  "Objekt-Nr: ...\n" +
-  "Kunden-Nr: ...\n" +
-  "Projektleiter: ...\n" +
-  "Objektadresse: ...\n\n" +
-  "Hier ist der Text aus der PDF:\n\n" + extracted
+              "Du erhältst Text aus dem oberen Bereich der ersten Seite eines Bauleistungsverzeichnisses.\n" +
+              "Bitte extrahiere folgende Felder:\n\n" +
+              "- Objekt-Nr: (nach 'Objekt-Nr:')\n" +
+              "- Kunden-Nr: (nach 'Kunden-Nr:')\n" +
+              "- Projektleiter: (nach 'Objekt-Leiter:')\n" +
+              "- Objektadresse: (nach dem Wort 'Objekt:')\n\n" +
+              "Text:\n\n" + extracted
           }],
           temperature: 0.2
         })
