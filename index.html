@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <title>DS Raumdesign – PDF & OCR Rechnung</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/pdfjs-dist@3.4.120/build/pdf.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/tesseract.js@2.1.5/dist/tesseract.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div id="login">
+    <h2>🔐 Login</h2>
+    <input type="text" id="username" placeholder="Benutzername" />
+    <input type="password" id="password" placeholder="Passwort" />
+    <button onclick="checkLogin()">Login</button>
+  </div>
+
+  <div id="app" style="display:none;">
+    <h1>📄 DS Raumdesign – PDF/Bild zu Excel-Rechnung</h1>
+    <input type="file" id="fileInput" accept=".pdf,.png,.jpg,.jpeg" />
+    <button onclick="processFile()">Rechnung erzeugen</button>
+    <canvas id="pdfCanvas" style="display:none;"></canvas>
+    <pre id="status">Status: bereit</pre>
+  </div>
+</body>
+</html>
