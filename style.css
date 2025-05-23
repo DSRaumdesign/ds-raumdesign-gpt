@@ -1,19 +1,15 @@
 
 body {
   font-family: sans-serif;
-  background: #f9f9f9;
+  background: #f0f0f0;
   padding: 2em;
 }
 input, button {
-  padding: 10px;
   margin: 10px 0;
-}
-canvas {
-  display: none;
+  padding: 10px;
 }
 pre {
   background: #fff;
   padding: 1em;
   border: 1px solid #ccc;
-  white-space: pre-wrap;
 }
